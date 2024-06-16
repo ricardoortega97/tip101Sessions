@@ -89,3 +89,4 @@ def find_majority_element(elements):
 
 elements = [2, 2, 1, 1, 1, 2, 2]
 print(find_majority_element(elements))
+

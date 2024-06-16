@@ -12,6 +12,7 @@ lst1 = [1,2,3]
 
 print_lst(["squirtle", "gengar", "charizard", "pikachu"])
 double(lst1)
+
 #Return Double list 
 def doubled(lst1):
   new_lst = []
@@ -85,4 +86,124 @@ def find_divisors(n):
 
 lst = find_divisors(10)
 print(lst)
+
+#Keys Versus Values
+def keys_v_values(dictionary):
+  sum_keys = 0
+  sum_value = 0
+  items = dictionary.items()
+  for k, v in items:
+    sum_keys = sum_keys + k
+    sum_value = sum_value + v
+
+  if sum_keys == sum_value:
+    return "Balanced"
+  elif sum_keys > sum_value:
+    return "Keys"
+  else:
+    return "Values"
+
+dictionary1 = {1:10, 2:20, 3:30, 4:40, 5:50, 6:60}
+greater_sum = keys_v_values(dictionary1)
+print(greater_sum)
+
+dictionary2 = {100:10, 200:20, 300:30, 400:40, 500:50, 600:60}
+greater_sum = keys_v_values(dictionary2)
+print(greater_sum)
+
+#Restock Inventory
+def restock_inventory(current_inventory, restock_list):
+  for item, quantity in restock_list.items():
+      if item in current_inventory:
+          current_inventory[item] += quantity
+      else:
+          current_inventory[item] = quantity
+
+  return print(current_inventory)
+
+current_inventory = {
+"apples": 30,
+"bananas": 15,
+"oranges": 10
+}
+
+restock_list = {
+"oranges": 20,
+"apples": 10,
+"pears": 5
+}
+
+restock_inventory(current_inventory, restock_list)
+
+#Calculate gpa
+def calculate_gpa(report_card):
+  grade_points = {
+    "A" : 4, 
+    "B" : 3,
+    "C" : 2,
+    "D" : 1,
+    "F" : 0
+  }
+
+  total_points = 0
+  numOfCourses = 0
+
+  for course, grade in report_card.items():
+    total_points += grade_points.get(grade, 0)
+
+    numOfCourses += 1
+
+  if numOfCourses == 0:
+    return 0.0
+
+  gpa = total_points/numOfCourses
+
+  return format("%.2f" % gpa)
+
+report_card = {"Math": "A", "Science": "C", "History": "A", "Art": "B", "English": "B", "Spanish": "A"}
+print(calculate_gpa(report_card))
+
+#best book
+def highest_rating(books):
+  if not books:
+    pass
+  #grabs the element 
+  else:
+    highest_rating = books[0]
+  #for the element in books, narrow down to the sub element 
+    for book in books:
+
+      if book["rating"] > highest_rating["rating"]:
+        highest_rating = book
+
+    return print(highest_rating)
+
+books = [
+    {"title": "Tomorrow, and Tomorrow, and Tomorrow",
+       "author": "Gabrielle Zevin",
+       "rating": 4.18
+      },
+      {"title": "A Fortune For Your Disaster",
+       "author": "Hanif Abdurraqib",
+       "rating": 4.47
+      },
+      {"title": "The Seven Husbands of Evenlyn Hugo",
+       "author": "Taylor Jenkins Reid",
+       "rating": 4.40
+      }
+]
+
+highest_rating(books)
+
+#ndex-Value Map
+def index_to_value_map(lst):
+  output = {}
+
+  for elem in range(len(lst)):
+    output[elem] = lst[elem]
+
+  print(output)
+
+lst = ["apple", "banana", "cherry", "pear"]
+index_to_value_map(lst)
 
