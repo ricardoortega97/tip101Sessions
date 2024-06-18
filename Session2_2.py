@@ -1,4 +1,4 @@
-#Cast vote
+Cast vote
 def cast_vote(votes, candidate):
     if candidate in votes:
       votes[candidate] = votes[candidate] + 1
@@ -90,3 +90,69 @@ def find_majority_element(elements):
 elements = [2, 2, 1, 1, 1, 2, 2]
 print(find_majority_element(elements))
 
+#Student Dictory
+def student_directory(student_names):
+  student_directory = {}
+  id_num = 1
+  for student in student_names:
+    student_directory[student] = id_num
+    id_num += 1
+
+  return student_directory
+
+student_names = ["Ada Lovelace", "Tu Youyou", "Mae Jemison", "Rajeshwari Chatterjee", "Alan Turing"]
+
+print(student_directory(student_names))
+
+#Dictionary Description
+def get_description(info, keys):
+  for key in keys:
+    if key in info:
+      print(info[key])
+    else:
+      print(None)
+
+
+info = {"name": "Tom", "age": "30", "occupation": "engineer"}
+keys = ["name", "occupation", "salary"]
+get_description(info, keys)
+
+#sum evens 
+def sum_even_values(dictionary):
+  sum = 0 
+
+  for key, value in dictionary.items():
+    if value % 2 == 0:
+      sum += value
+  return sum
+
+dictionary = {"a": 4, "b": 1, "c": 2, "d": 8, }
+print(sum_even_values(dictionary))
+
+#merge catalog
+def merge_catalogs(catalog1, catalog2):
+
+  for key, value in catalog2.items():
+    if key in catalog1:
+      catalog1[key] = value
+    else:
+      catalog1[key] = value
+  print(catalog1)
+
+catalog1 = {"apple": 1.0, "banana": 0.5, "pear" : 2.0}
+catalog2 = {"banana": 0.75, "cherry": 1.25}
+
+merge_catalogs(catalog1,catalog2)
+
+#restock items 
+def get_items_to_restock(products, restock_threshold):
+  low = []
+  for key, value in products.items():
+    if value < restock_threshold:
+      low.append(key)
+  return print(low)
+
+products = {"Product1": 10, "Product2": 2, "Product3": 5, "Product4": 3}
+restock_threshold = 5
+
+get_items_to_restock(products, restock_threshold)

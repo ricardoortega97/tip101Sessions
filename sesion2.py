@@ -194,7 +194,7 @@ books = [
 ]
 
 highest_rating(books)
-
+#problem set 2 
 #ndex-Value Map
 def index_to_value_map(lst):
   output = {}
@@ -207,3 +207,25 @@ def index_to_value_map(lst):
 lst = ["apple", "banana", "cherry", "pear"]
 index_to_value_map(lst)
 
+#is monotonic 
+def is_monotonic(nums):
+  increasing = True
+  decreasing = True
+
+  for num in range(1, len(nums)):
+    if nums[num] < nums[num - 1]:
+      #nums4[nums] is 8 and nums4[num - 1] is 9
+      increasing = False
+    if nums[num] > nums[num - 1]:
+      decreasing = False
+  #returns if the either variable is true else returns if both false 
+  return increasing or decreasing  
+
+nums1 = [1,2,2,3,10]
+print(is_monotonic(nums1))
+nums2 = [12,9,8,3,1]
+print(is_monotonic(nums2))
+nums3 = [1,1,1]
+print(is_monotonic(nums3))
+nums4 = [1,9,8,3,5]
+print(is_monotonic(nums4))
