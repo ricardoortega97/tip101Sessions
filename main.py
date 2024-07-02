@@ -1,15 +1,16 @@
-#Two-Pointer Remove Element
-def removeElement(nums, val):
-  i = 0
-  for j in range(len(nums)):
-    if nums[j] != val:
-      nums[i] = nums[j]
-      i += 1
-      
-      
-  return i
+#Duplicates within Range
+def contains_nearby_duplicate(lst, k):
+  dic = {}
 
-nums = [5, 4, 4, 3, 4, 1]
-nums_len = removeElement(nums, 4)
-print(nums[:nums_len]) # same list
-print(nums_len)
+  for i, elem in enumerate(lst):
+    print(i, elem)
+    if elem in dic and i - dic[elem] <= k:
+      return True
+
+    dic[elem] = i 
+  return False
+
+lst = [1, 2, 3, 1, 2, 3]
+lst2 = [1, 0, 1, 1]
+print(contains_nearby_duplicate(lst, 2))
+print(contains_nearby_duplicate(lst2, 1))
