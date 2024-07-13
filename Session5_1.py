@@ -107,10 +107,6 @@ print(nodeOne.next.value)
 print(nodeTwo.value)
 
 #Mario Party 
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next = next
 
 node_1 = Node('Mario')
 node_2 = Node('Luigi')
@@ -127,10 +123,7 @@ print(node_3.value, "->", node_3.next.value)
 print(node_4.value, "->", node_4.next)
 
 #Linked list 
-class Node:
-  def __init__(self, value, next=None):
-    self.value = value
-    self.next= next
+
 
 def print_linked_list(head):
   current = head 
@@ -152,3 +145,46 @@ e = Node('e')
 d.next = e
 
 print_linked_list(a)
+
+#Card class
+class Card():
+  def  __init__(self, suit, rank):
+    self.suit = suit
+    self.rank = rank
+    self.card = []
+
+  def printCard(self):
+    print(f"{self.rank} of {self.suit}")
+#Ensure that the card is valid 
+  def isValid(self):
+    suits = ['Hearts', 'Spades', 'Clubs', 'Diamonds']
+    ranks = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace']
+    if self.suit in suits and self.rank in ranks:
+      return True
+
+    return False
+#get the value of the unique card 
+  def getValue(self):
+    if self.rank == 'Ace':
+      self.rank = '1'
+    elif self.rank == 'Jack':
+      self.rank = '11'
+    elif self.rank == 'Queen':
+      self.rank = '12'
+    elif self.rank == 'King':
+      self.rank = '13'
+
+    return self.rank
+
+my_card = Card("Hearts", "7")
+#print(my_card.isValid())
+print(my_card.getValue())
+card_two = Card("Spades", "Jack")
+print(card_two.getValue())
+#second_draw = Card("Spades", "Joker")
+#print(second_draw.isValid())
+
+'''card = Card("Spades", "8")
+  card = Card("Clubs", "Ace")
+  card.suit = "Hearts"
+  card.printCard()'''
