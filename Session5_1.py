@@ -188,3 +188,37 @@ print(card_two.getValue())
   card = Card("Clubs", "Ace")
   card.suit = "Hearts"
   card.printCard()'''
+
+'''class Node:
+  def __init__(self, value, next=None):
+    self.value = value
+    self.next = next
+
+def printLinkedLst(head):
+  lst = []
+  current = head
+  while current:
+    lst.append(current.value)
+    current = current.next
+    
+  return lst
+
+d = Node('d')
+c = Node('c', d)
+b = Node('b',c)
+a = Node('a', b)
+
+print(printLinkedLst(a))
+
+node1 = Node('aries')
+node2  = Node('taurus')
+node3 =Node('gemini')
+node4 = Node('cancer')
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+print(node1.value, "->", node1.next.value)
+print(node2.value, "->", node2.next.value)
+print(node3.value, "->", node3.next.value)
+print(node4.value, "->", node4.next)'''
