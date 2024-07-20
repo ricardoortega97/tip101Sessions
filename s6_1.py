@@ -4,7 +4,7 @@ class Node:
   def __init__(self, value, next=None):
     self.value = value
     self.next = next
-    
+
 #Prints the linked list for string
 def printLL(head):
   current = head 
@@ -53,7 +53,7 @@ def findMiddleElem(head):
   while fast and fast.next:
     slow = slow.next
     fast = fast.next.next #moves by two 
-    
+
   return slow.value
 
 #palindrome checker
@@ -95,7 +95,7 @@ def reverse(head):
     current = nextNode #continue to next node 
 
   print_list(previous)
-  
+
 #Nested Contructor 
 num1 = Node(4, Node(3, Node(5, Node(2, Node(1)))))
 head = Node('a', Node('b', Node('c', Node('d'))))
@@ -111,8 +111,3 @@ head = Node('a', Node('b', Node('c', Node('d'))))
 #print(isPalindromeNode(head))
 
 reverse(head)
-
-
-
-
-
