@@ -104,3 +104,111 @@ def floor(lst, x):
 lst1 = [1, 2, 8, 10, 11, 12, 19]
 output = floor(lst1, x = 5)
 print(output)
+
+print('\n ---Problem 2.1---')
+#Counting down 
+def countdown(n):
+  if n > 0:
+    print(n)
+    countdown(n -1)
+
+countdown(3)
+print('\n ---Problem 2.2---')
+#Fibonacci Case
+def fibonacci(n):
+  if n == 0:
+    return 0
+  elif n == 1:
+    return 1
+  else:
+    return fibonacci(n -1) + fibonacci(n - 2)
+
+print(fibonacci(6))
+print('\n ---Problem 2.3---')
+#Recursive Product 
+def lstProduct(lst):
+  if not lst:
+    return 1
+  else:
+    return lst[0] * lstProduct(lst[1:])
+
+lst = [1, 2, 3, 4, 5]
+output = lstProduct(lst)
+print(output)
+print('\n ---Problem 2.4---')
+#Recursive Power of 4
+def is_pow_of_four(n):
+  if n == 1:
+    return True
+
+  if n < 1 or n % 4 != 0:
+    return False
+
+  return is_pow_of_four(n // 4)
+
+output = is_pow_of_four(2)
+print(output)
+print('\n ---Problem 2.5---')
+#Binary Search II
+def binarySearch(arr, target, left, right):
+  if left > right: #not found within bonds
+    return -1
+  mid = (left + right) // 2
+
+  if arr[mid] == target:
+    return mid
+  elif arr[mid] > target:
+    return binarySearch(arr, target, left, mid -1)
+  else:
+    return binarySearch(arr, target, mid + 1, right)
+
+arr = [1, 3, 5, 7, 11, 9, 11, 13, 15]
+output = binarySearch(arr, 10, 0, len(arr) -1)
+print("output:",output)
+print('\n ---Problem 2.6---')
+#Find Ceiling
+def ceiling(lst, x):
+  low, high = 0, len(lst) - 1  
+  val = -1
+
+  while low <= high:
+    mid = (low + high) // 2
+    if lst[mid] < x:
+      low = mid + 1
+    else:
+      val = mid
+      high = mid - 1
+
+  return val
+
+
+lst1 = [1, 2, 8, 10, 11, 12, 19]
+output = ceiling(lst, 5)
+print(output)
+print('\n ---Problem 2.7---')
+#Ternary Search 
+def ternary(lst, target):
+  low, high = 0, len(lst) -1
+
+  while low <= high:
+    mid1 = low + (low + high) // 3
+    mid2 = high - (low + high) // 3
+
+    if lst[mid1] == target:
+      return mid1
+    if lst[mid2] == target:
+      return mid2
+
+    if target < lst[mid1]:
+      high = mid1 -1
+    elif target > lst[mid2]:
+      low = mid2 + 1
+    else:
+      low = mid1 + 1
+      high = mid2 - 1
+
+  return -1
+
+lst2 = [1, 3, 5, 7, 9, 11, 13, 15]
+output = ternary(lst2, 3)
+print(output)
