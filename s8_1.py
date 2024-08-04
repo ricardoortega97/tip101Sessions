@@ -39,5 +39,17 @@ def leftMostRecursive(root):
 
   return leftMostRecursive(root.left)
 
+def inorderTraversal(root):
+    values = []
+    return inorderHelper(root, values)
+
+def inorderHelper(currerntNode, values):
+    if not currerntNode:
+        return values
+    inorderHelper(currerntNode.left, values)
+    values.append(currerntNode.val)
+    inorderHelper(currerntNode.right, values)
+    return values
+
 print(nodeSumII(root))
 print(leftMostRecursive(root))

@@ -4,12 +4,9 @@ class TreeNode:
         self.left = left
         self.right = right
 
-root = TreeNode(10)
-root.left = TreeNode(4)
+root = TreeNode(1)
 root.right = TreeNode(6)
-root.right.left = TreeNode(2)
-#root.left.left = TreeNode(3)
-
+root.right.left = TreeNode(3)
 
 def nodeSumI(root):
     return root.val == (root.left.val + root.right.val)
@@ -39,6 +36,19 @@ def leftMostRecursive(root):
         
     return leftMostRecursive(root.left)
 
+def inorderTraversal(root):
+    values = []
+    return inorderHelper(root, values)
+
+def inorderHelper(currerntNode, values):
+    if not currerntNode:
+        return values
+    inorderHelper(currerntNode.left, values)
+    values.append(currerntNode.val)
+    inorderHelper(currerntNode.right, values)
+    return values
+        
 print(nodeSumII(root))
 print(leftMostRecursive(root))
+print(inorderTraversal(root))
 
